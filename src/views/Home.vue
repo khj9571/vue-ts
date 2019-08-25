@@ -10,26 +10,43 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { Component, Vue } from "vue-property-decorator";
+import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import { cloneDeep } from "lodash";
 
-
+import { mapActions } from "vuex";
+import { State, Action, Getter } from "vuex-class";
+            const namespace: string = 'a'
+    const str: string = 'a'
 @Component({
   components: {
-    HelloWorld,
+    HelloWorld
   },
+  computed: {
+    // ...mapActions(["test"])
+  }
 })
 export default class Home extends Vue {
 
-  created() {
+        // @State('profile') profile: ProfileState;
+        // @Action('fetchData', { namespace }) fetchData: any;
+        // @Getter('fullName', { namespace }) fullName: string
 
-  }
+
+
+@Action('test',{namespace}) fetchData: any;
+
+  created() {}
 
   mounted() {
-   this.$restApiService.httpGetService();
+    this.$restApiService
+      .httpGetService("http://localhost:9090/sample",{},{},true)
+      .then(res => {});
 
-   console.log(this);
+    console.log(process.env);
+    // this.$store.dispatch("test");
+
+    this.fetchData();
   }
-
 }
 </script>

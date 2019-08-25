@@ -13,36 +13,66 @@
     <el-header>Header</el-header>
     <el-container>
       <el-aside width="300px">
-        <el-row class="tac" style="padding:5px">
-          <el-col>
+        <el-row class="tac" style="padding:5px;height:100%">
+          <el-col style="height:100%">
             <el-menu
-              default-active="2"
+            :default-openeds="['1','2','3']"
               class="el-menu-vertical-demo"
               background-color="#545c64"
               text-color="#fff"
               active-text-color="#ffd04b"
-              router
+              :router="true"
             >
+
               <el-submenu index="1">
+                      <template slot="title"><i class="el-icon-menu"></i>메뉴1</template>
+                      <el-menu-item>option-1</el-menu-item>
+                        <el-menu-item>option-1-1-1</el-menu-item>
+                        <el-menu-item>option-1-1-2</el-menu-item>
+                    </el-submenu>
+                    <el-submenu index="2">
+                      <template slot="title"><i class="el-icon-menu"></i>메뉴2</template>
+                      <el-menu-item>option-2</el-menu-item>
+                      <!-- <el-menu-item-group title="option-2-1"> -->
+                        <el-menu-item>option-2-1-1</el-menu-item>
+                        <el-menu-item>option-2-1-2</el-menu-item>
+                      <!-- </el-menu-item-group> -->
+                    </el-submenu>
+                    <el-submenu index="3">
+                      <template slot="title"><i class="el-icon-menu"></i>샘플</template>
+                        <el-menu-item index="3-1" :route="{ name:'table'}">option-2</el-menu-item>
+                        <el-menu-item>option-2-1-1</el-menu-item>
+                        <el-menu-item>option-2-1-2</el-menu-item>
+                    </el-submenu>
+
+              <!-- <el-submenu index="1">
                 <template slot="title">
                   <i class="el-icon-location"></i>
                   <span>Navigator One</span>
                 </template>
-                <el-menu-item-group title="Group One">
-                  <el-menu-item index="1-1" :route="{ name:'about'}">item one</el-menu-item>
-                  <el-menu-item index="1-2" :route="{ name:'posts'}">item two</el-menu-item>
-                </el-menu-item-group>
+    
+                  <el-menu-item index="1-1" :route="{ name:'about'}">Menu1-1</el-menu-item>
+                  <el-menu-item index="1-2" :route="{ name:'posts'}">Menu1-2</el-menu-item>
 
-                
-                <el-menu-item-group title="Group Two">
                   <el-menu-item index="1-3" :route="{ name:'child1'}">item three</el-menu-item>
-                </el-menu-item-group>
+
                 <el-submenu index="1-4">
                   <template slot="title">item four</template>
                   <el-menu-item index="1-4-1">item one</el-menu-item>
                 </el-submenu>
               </el-submenu>
-              <el-menu-item index="2">
+
+              <el-submenu index="2">
+                 <template slot="title">
+                  <i class="el-icon-location"></i>
+                  <span>샘플</span>
+                </template>
+          
+                  <el-menu-item index="2-1" :route="{ name:'table'}">Table</el-menu-item>
+                  <el-menu-item :route="{ name:'posts'}">Menu1-2</el-menu-item>
+
+              </el-submenu> -->
+              <!-- <el-menu-item index="2">
                 <i class="el-icon-menu"></i>
                 <span>Navigator Two</span>
               </el-menu-item>
@@ -53,7 +83,7 @@
               <el-menu-item index="4">
                 <i class="el-icon-setting"></i>
                 <span>Navigator Four</span>
-              </el-menu-item>
+              </el-menu-item> -->
             </el-menu>
           </el-col>
         </el-row>
@@ -70,7 +100,21 @@
   </el-container>
 </template>
 
+
+<script lang="ts">
+import Vue from "vue";
+export default class Home extends Vue {
+  defaults = [1, 2];
+}
+</script>
+
+
+
+
 <style>
+.el-submenu__title {
+  text-align: left;
+}
 .el-header,
 .el-footer {
   background-color: #b3c0d1;

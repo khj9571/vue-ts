@@ -12,6 +12,9 @@ import VueAxios from 'vue-axios'
 
 Vue.use(VueAxios, axios)
 
+
+Vue.use(require('vue-moment'))
+
 // import VueMoment from 'vue-moment'
 // import moment from 'moment-timezone'
 

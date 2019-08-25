@@ -1,0 +1,19 @@
+<template>
+  <div>
+    BBB
+      <router-view></router-view>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+@Component({
+})
+export default class Home extends Vue {
+
+  created() {}
+
+  mounted() {
+  }
+}
+</script>

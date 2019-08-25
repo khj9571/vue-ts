@@ -35,6 +35,20 @@ export default new Router({
         },
         { path: 'child2', name: 'child2', component: { template: '<div>Post Detail</div>' } }
       ]
+    },
+    {
+      path: '/sample',
+      name: 'sample',
+      component: () => import(/* webpackChunkName: "about" */ './views/samples/Index.vue'),
+
+
+      // // 중첩된 라우트는 children 속성으로 하위 라우트를 정의할 수 있다.
+      children: [
+        {
+          path: 'table', name: 'table',
+          component: () => import(/* webpackChunkName: "about" */ './views/samples/El-Table.vue')
+        }
+      ]
     }
 
   ]
