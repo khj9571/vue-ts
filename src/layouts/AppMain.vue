@@ -1,7 +1,24 @@
 
 <template>
   <el-container style="border:solid 1px; height: -webkit-fill-available;">
-    <el-header>
+
+   <el-aside width="300px">
+      <side-bar></side-bar>
+   </el-aside>
+   <el-container>
+        <el-header>
+           <main-header></main-header>
+        </el-header>
+        <el-main>
+            <router-view />
+        </el-main>    
+        <el-footer>
+          <main-footer></main-footer>
+        </el-footer>
+   </el-container>
+
+
+    <!-- <el-header>
       <main-header></main-header>
     </el-header>
     <el-container>
@@ -18,9 +35,18 @@
           <main-footer></main-footer>
         </el-footer>
       </el-container>
-    </el-container>
+    </el-container> -->
   </el-container>
 </template>
+
+// <el-container>
+//   <el-aside width="200px">Aside</el-aside>
+//   <el-container>
+//     <el-header>Header</el-header>
+//     <el-main>Main</el-main>
+//     <el-footer>Footer</el-footer>
+//   </el-container>
+// </el-container>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
