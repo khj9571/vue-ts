@@ -16,7 +16,7 @@ import { cloneDeep } from "lodash";
 
 import { mapActions } from "vuex";
 import { State, Action, Getter } from "vuex-class";
-            const namespace: string = 'a'
+           // const namespace: string = 'b'
     const str: string = 'a'
 @Component({
   components: {
@@ -34,7 +34,7 @@ export default class Home extends Vue {
 
 
 
-@Action('test',{namespace}) fetchData: any;
+@Action('incr',{namespace:'b'}) fetchData: any;
 
   created() {}
 
@@ -46,7 +46,13 @@ export default class Home extends Vue {
     console.log(process.env);
     // this.$store.dispatch("test");
 
-    this.fetchData();
+    // this.fetchData();
+
+    let str:string = '[aabcdd]';
+    alert(str.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi,"'"))
+
+
+
   }
 }
 </script>

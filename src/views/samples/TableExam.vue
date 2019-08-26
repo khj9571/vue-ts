@@ -1,17 +1,17 @@
 <template>
    <div>
-    <side-menu></side-menu>
+     <h1>Table Exam</h1>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-import SideMenu from "@/layouts/sideMenu.vue";
+// import SideMenu from "@/layouts/sideMenu.vue";
 
 @Component({
   components:{
-    SideMenu
+    // SideMenu
   }
 })
 export default class Home extends Vue {
@@ -19,6 +19,9 @@ export default class Home extends Vue {
   created() {}
 
   mounted() {
+
+    //     let str:string = '[aabcdd]';
+    // alert(str.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi,""))
   }
 }
 </script>

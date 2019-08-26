@@ -10,8 +10,10 @@ import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-Vue.use(VueAxios, axios)
+import GloblePlugin from './plugins/app'
 
+
+Vue.use(VueAxios, axios)
 
 Vue.use(require('vue-moment'))
 
@@ -22,14 +24,8 @@ Vue.use(require('vue-moment'))
 //   moment,
 // })
 
-
-
-import GloblePlugin from './plugins/app'
-
 Vue.config.productionTip = false
-
 Vue.use(Element)
-
 Vue.use(GloblePlugin);
 
 new Vue({

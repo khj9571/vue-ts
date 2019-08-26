@@ -1,13 +1,26 @@
-import { Module } from 'vuex';
-
-export const profile: Module<any, any> = {
-  namespaced:true,
+import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
  
-   actions: {
-     // [Constant.ADD_TODO]: ({ state, commit }, payload) => { console.log("###addTodo!!!"); commit(Constant.ADD_TODO, payload); },
+@Module({namespaced:true})
+export default class Module2 extends VuexModule {
+  count = 0
  
-     test : ({commit}) => {
-       alert("call2")
-     }
-   }
- };
+  @Mutation
+  increment(delta: number) {
+    this.count += delta
+  }
+  @Mutation
+  decrement(delta: number) {
+    this.count -= delta
+  }
+ 
+  // action 'incr' commits mutation 'increment' when done with return value as payload
+  @Action({ commit: 'increment' })
+  incr() {
+    alert('increment')
+  }
+  // action 'decr' commits mutation 'decrement' when done with return value as payload
+  @Action({ commit: 'decrement' })
+  decr() {
+    return 5
+  }
+}

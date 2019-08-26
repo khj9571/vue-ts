@@ -1,17 +1,38 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import AppMain from '@/layouts/AppMain.vue'
 
 Vue.use(Router)
-
+//   redirect: '/dashboard',
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      redirect: '/home'
+    },
+
+    {
+      // path: '/',
+      // name: 'home',
+      // component: Home
+      path: '/',
+      component: AppMain,
+      children: [
+        {
+          path: 'home',
+          name: 'home',
+          component: () => import(/* webpackChunkName: "guide" */ '@/views/Home.vue'),
+          // name: 'Guide',
+          // meta: {
+          //   title: 'guide',
+          //   icon: 'guide',
+          //   noCache: true
+          // }
+        }
+      ]
     },
     {
       path: '/about',
@@ -39,14 +60,12 @@ export default new Router({
     {
       path: '/sample',
       name: 'sample',
-      component: () => import(/* webpackChunkName: "about" */ './views/samples/Index.vue'),
-
-
-      // // 중첩된 라우트는 children 속성으로 하위 라우트를 정의할 수 있다.
+      // component: () => import(/* webpackChunkName: "about" */ './views/samples/Index.vue'),
+      component: AppMain,
       children: [
         {
           path: 'table', name: 'table',
-          component: () => import(/* webpackChunkName: "about" */ './views/samples/El-Table.vue')
+          component: () => import(/* webpackChunkName: "about" */ './views/samples/TableExam.vue')
         }
       ]
     }
