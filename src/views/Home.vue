@@ -2,11 +2,9 @@
   <!-- <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div> -->
+  </div>-->
 
-  <div>
-    AAAA
-  </div>
+  <div>AAAA</div>
 </template>
 
 <script lang="ts">
@@ -16,8 +14,8 @@ import { cloneDeep } from "lodash";
 
 import { mapActions } from "vuex";
 import { State, Action, Getter } from "vuex-class";
-           // const namespace: string = 'b'
-    const str: string = 'a'
+// const namespace: string = 'b'
+const str: string = "a";
 @Component({
   components: {
     HelloWorld
@@ -27,20 +25,17 @@ import { State, Action, Getter } from "vuex-class";
   }
 })
 export default class Home extends Vue {
+  // @State('profile') profile: ProfileState;
+  // @Action('fetchData', { namespace }) fetchData: any;
+  // @Getter('fullName', { namespace }) fullName: string
 
-        // @State('profile') profile: ProfileState;
-        // @Action('fetchData', { namespace }) fetchData: any;
-        // @Getter('fullName', { namespace }) fullName: string
-
-
-
-@Action('incr',{namespace:'b'}) fetchData: any;
+  @Action("incr", { namespace: "b" }) fetchData: any;
 
   created() {}
 
   mounted() {
     this.$restApiService
-      .httpGetService("http://localhost:9090/sample",{},{},true)
+      .httpGetService("http://localhost:9090/sample", {}, {}, true)
       .then(res => {});
 
     console.log(process.env);
@@ -48,11 +43,10 @@ export default class Home extends Vue {
 
     // this.fetchData();
 
-    let str:string = '[aabcdd]';
-    alert(str.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi,"'"))
-
-
-
+    // let str: string = "[aabcdd]";
+    // alert(
+    //   str.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi, "'")
+    // );
   }
 }
 </script>

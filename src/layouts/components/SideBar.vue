@@ -17,19 +17,19 @@
               <span slot="title">메뉴1</span>
             </template>
 
-            <el-menu-item>option-1</el-menu-item>
-            <el-menu-item>option-1-1-1</el-menu-item>
-            <el-menu-item>option-1-1-2</el-menu-item>
+            <el-menu-item>메뉴1-1</el-menu-item>
+            <el-menu-item>메뉴1-2</el-menu-item>
+            <el-menu-item>메뉴1-3</el-menu-item>
           </el-submenu>
           <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span slot="title">메뉴2</span>
             </template>
-            <el-menu-item>option-2</el-menu-item>
+            <el-menu-item>메뉴2-1</el-menu-item>
             <el-menu-item-group title="option-2-1">
-              <el-menu-item>option-2-1-1</el-menu-item>
-              <el-menu-item>option-2-1-2</el-menu-item>
+              <el-menu-item>메뉴2-2</el-menu-item>
+              <el-menu-item>메뉴2-3</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="3">
@@ -69,8 +69,8 @@ export default class SideMenu extends Vue {
 </script>
 
 <style>
-    .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 100%;
-    min-height: 400px;
-  }
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 100%;
+  min-height: 400px;
+}
 </style>

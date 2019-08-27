@@ -1,7 +1,9 @@
 
 import Vue from 'vue'
 
-import { test } from './restService'
+
+import * as filters from '@/filters' // global filters
+
 
 
 interface AbstractApi {
@@ -85,10 +87,18 @@ declare module 'vue/types/vue' {
 const GloblePlugin: any = {};
 
 
+
+
+
 GloblePlugin.install = function (Vue: any, options: any) {
 
   console.log('시작')
   console.log(Vue.prototype.$moment().format('YYYYMMDD'))
+
+  let fi: any = filters;
+  Object.keys(filters).forEach(key => {
+    Vue.filter(key, fi[key]);
+  })
 
 
 
@@ -97,33 +107,6 @@ GloblePlugin.install = function (Vue: any, options: any) {
 }
 
 
-export const restApiService = {
-  httpGetService: (url: string = "http://localhost:9090/sample", params: any = {}, headers = {}, useLoading = false, ) => {
-    return Vue.axios.get(url, { params: params, headers: headers }).then((response) => {
-      // console.log(response.data);
-      return new Promise(function (resolve, reject) {
-        console.log(response);
-        // if (response.data) {
-
-        //   resolve(response.data);
-        // } else {
-        //   reject('');
-        // }
-      })
-    }, (err) => {
-      return Promise.reject('Err')
-      alert('err');
-    }).finally(() => {
-
-      // if (useLoading) {l
-      //   loading.close();
-      // }
-    });
-
-
-  }
-
-}
 
 
 
