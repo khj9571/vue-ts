@@ -4,7 +4,7 @@ import Vue from 'vue'
 
 import * as filters from '@/filters' // global filters
 
-
+import * as directives from '@/directives';
 
 interface AbstractApi {
   httpGetService(url: string, params: any, headers: any, useLoading: boolean): Promise<any>;
@@ -98,7 +98,15 @@ GloblePlugin.install = function (Vue: any, options: any) {
   let fi: any = filters;
   Object.keys(filters).forEach(key => {
     Vue.filter(key, fi[key]);
-  })
+  });
+
+  
+  let dir :any = directives;
+  Object.keys(directives).forEach(key => {
+    // console.log('안녕 하세요.')
+    // console.log(key)
+    Vue.directive(key,dir[key]);
+  });
 
 
 
