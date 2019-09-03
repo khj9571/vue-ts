@@ -8,6 +8,11 @@
          <!-- <span>Test1</span> -->
          Test
     </div>
+
+           <!-- <input  type="text" placeholder="27/10/2016 23:15"
+                   v-mask="'##/##/#### ##:##'"
+                   v-model="t"
+            /> -->
   </div>
 </template>
 
@@ -16,18 +21,23 @@ import { Component, Vue } from "vue-property-decorator";
 import { GroupMixin } from "@/mixins/GroupMixin";
 import { mixins } from "vue-class-component";
 
-import colorDirective from '@/directives/color-directive';
-
+// import colorDirective from '@/directives/color-directive';
+//  import {mask} from 'vue-the-mask';
 @Component({
   components: {
     // SideMenu
   },
   directives:{
-    colorDirective
+    // colorDirective
   }
 })
 export default class TableExam extends mixins(GroupMixin) {
-  created() {}
+  
+  private a:string ='';
+
+  created() {
+   
+  }
   mounted() {
     //     let str:string = '[aabcdd]';
     // alert(str.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi,""))

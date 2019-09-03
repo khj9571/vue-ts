@@ -64,6 +64,10 @@ export default new Router({
       component: AppMain,
       children: [
         {
+          path: 'api', name: 'api',
+          component: () => import(/* webpackChunkName: "about" */ './views/samples/ApiExam.vue')
+        },
+        {
           path: 'table', name: 'table',
           component: () => import(/* webpackChunkName: "about" */ './views/samples/TableExam.vue')
         }

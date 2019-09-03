@@ -10,12 +10,16 @@ import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+// c:/Vue/새 폴더/vue-ts/node_modules/v-mask/dist/v-mask.js
+// import VueMask from 'v-mask'
+// Vue.use(VueMask);
+
 import GloblePlugin from './plugins/app'
 
-
 Vue.use(VueAxios, axios)
-
 Vue.use(require('vue-moment'))
+
+
 
 // import VueMoment from 'vue-moment'
 // import moment from 'moment-timezone'
