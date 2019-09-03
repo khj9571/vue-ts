@@ -7,6 +7,8 @@ import {HttpService} from '@/plugins/class'
 
 import moment from "moment";
 
+//    <el-collapse-transition>
+
 // interface AbstractApi {
 //   httpGetService(url: string, params: any, headers: any, useLoading: boolean): Promise<any>;
 //   // httpGetService: () => {},
@@ -76,8 +78,6 @@ import moment from "moment";
 // }
 
 
-let getMoment = () => {Vue.prototype.$moment()}
-
 declare module 'vue/types/vue' {
   interface Vue {
     $restApiService: HttpService;
@@ -115,10 +115,6 @@ GloblePlugin.install = function (Vue: any, options: any) {
 
   Vue.prototype.$restApiService = new HttpService();
 }
-
-
-
-
 
 
 

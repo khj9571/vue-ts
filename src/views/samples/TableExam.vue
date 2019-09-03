@@ -1,18 +1,17 @@
 <template>
-  <div>
+  <div style="height:100%" >
     <h1>Table Exam</h1>
-    <h1>{{'aaaa' | uppercaseFirst}}</h1>
-    <h1>{{'[aaaa]' | removeSpecialChar}}</h1>
-    <h1>{{'123000000' | toThousandFilter}}</h1>
-    <div style="border: solid 1px;" v-colorDirective="{color: 'red', backgroundColor: 'blue'}">
-         <!-- <span>Test1</span> -->
-         Test
-    </div>
 
-           <!-- <input  type="text" placeholder="27/10/2016 23:15"
-                   v-mask="'##/##/#### ##:##'"
-                   v-model="t"
-            /> -->
+      <div style="border: solid 1px;" v-show="visible" v-colorDirective="{color: 'red', backgroundColor: 'blue'}">
+        <!-- <span>Test1</span> -->
+        Test
+      </div>
+
+    <el-button @click="onClick()">클릭</el-button>
+       <el-date-picker
+      type="date"
+      placeholder="Pick a day">
+    </el-date-picker>
   </div>
 </template>
 
@@ -27,17 +26,19 @@ import { mixins } from "vue-class-component";
   components: {
     // SideMenu
   },
-  directives:{
+  directives: {
     // colorDirective
   }
 })
 export default class TableExam extends mixins(GroupMixin) {
-  
-  private a:string ='';
+  private visible:boolean = true;
 
-  created() {
-   
-  }
+ 
+ onClick() {
+  
+ }
+
+  created() {}
   mounted() {
     //     let str:string = '[aabcdd]';
     // alert(str.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi,""))

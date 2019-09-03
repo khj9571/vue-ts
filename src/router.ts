@@ -68,6 +68,14 @@ export default new Router({
           component: () => import(/* webpackChunkName: "about" */ './views/samples/ApiExam.vue')
         },
         {
+          path: 'filter', name: 'filter',
+          component: () => import(/* webpackChunkName: "about" */ './views/samples/FilterExam.vue')
+        },
+        {
+          path: 'directive', name: 'directive',
+          component: () => import(/* webpackChunkName: "about" */ './views/samples/DirectiveExam.vue')
+        },
+        {
           path: 'table', name: 'table',
           component: () => import(/* webpackChunkName: "about" */ './views/samples/TableExam.vue')
         }
