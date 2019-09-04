@@ -1,5 +1,7 @@
-import focus from './focus';
-import color from './color-directive';
+import focusDirective from './focus';
+import colorDirective from './color-directive';
+import borderDirective from './border';
 
-export const focusDirective = focus;
-export const colorDirective = color;
+export const focus = focusDirective;
+export const color = colorDirective;
+export const border = borderDirective;

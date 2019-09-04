@@ -9,6 +9,7 @@ const directive: DirectiveOptions = {
         if (node.value) {
             el.style.backgroundColor = node.value.backgroundColor;
             el.style.color = node.value.color;
+            el.style.border = 'solid 1px black';
         }
 
         /**Using modifiers:

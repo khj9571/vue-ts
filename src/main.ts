@@ -3,27 +3,48 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+/*********************************************************
+ * element ui
+ *********************************************************/
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/reset.css'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/ko';
 
+Vue.use(Element,{locale})
+
+/*********************************************************
+ * axios
+ *********************************************************/
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import 'expose-loader?$!expose-loader?jQuery!jquery'
-// c:/Vue/새 폴더/vue-ts/node_modules/v-mask/dist/v-mask.js
-// import VueMask from 'v-mask'
-// Vue.use(VueMask);
 
+Vue.use(VueAxios, axios)
+
+/*********************************************************
+ * jquery
+ *********************************************************/
+
+import 'expose-loader?$!expose-loader?jQuery!jquery'
+
+/********************************************************
+ * v-mask
+ *******************************************************/
+import VueMask from 'v-mask'
+
+Vue.use(VueMask as any);
+
+/**
+ * plugin
+ */
 
 import GloblePlugin from './plugins/app'
 
-Vue.use(VueAxios, axios)
-Vue.use(require('vue-moment'))
-
-Vue.config.productionTip = false
-Vue.use(Element,{locale})
 Vue.use(GloblePlugin);
+Vue.use(require('vue-moment'))
+Vue.config.productionTip = false
+
+
 
 new Vue({
   router,

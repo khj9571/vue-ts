@@ -1,17 +1,17 @@
 <template>
-  <div style="height:100%" >
+  <div style="height:100%">
     <h1>Table Exam</h1>
-
-      <div style="border: solid 1px;" v-show="visible" v-colorDirective="{color: 'red', backgroundColor: 'blue'}">
-        <!-- <span>Test1</span> -->
-        Test
-      </div>
-
     <el-button @click="onClick()">클릭</el-button>
-       <el-date-picker
-      type="date"
-      placeholder="Pick a day">
-    </el-date-picker>
+    <el-date-picker type="date" placeholder="Pick a day"></el-date-picker>
+
+    <input
+      class="u-full-width"
+      id="us-phone-number-ex"
+      type="text"
+      placeholder="+1(999)-999-9999"
+      v-mask="'(###)-###-####'"
+      v-model="a"
+    />
   </div>
 </template>
 
@@ -31,12 +31,10 @@ import { mixins } from "vue-class-component";
   }
 })
 export default class TableExam extends mixins(GroupMixin) {
-  private visible:boolean = true;
+  private visible: boolean = true;
+  private a: string = "123";
 
- 
- onClick() {
-  
- }
+  onClick() {}
 
   created() {}
   mounted() {
