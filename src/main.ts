@@ -6,7 +6,7 @@ import store from './store'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/reset.css'
 import 'element-ui/lib/theme-chalk/index.css'
-
+import locale from 'element-ui/lib/locale/lang/ko';
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -22,7 +22,7 @@ Vue.use(VueAxios, axios)
 Vue.use(require('vue-moment'))
 
 Vue.config.productionTip = false
-Vue.use(Element)
+Vue.use(Element,{locale})
 Vue.use(GloblePlugin);
 
 new Vue({
