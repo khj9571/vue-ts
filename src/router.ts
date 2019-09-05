@@ -76,6 +76,10 @@ export default new Router({
           component: () => import(/* webpackChunkName: "about" */ './views/samples/DirectiveExam.vue')
         },
         {
+          path: 'form', name: 'form',
+          component: () => import(/* webpackChunkName: "about" */ './views/samples/FormExam.vue')
+        },
+        {
           path: 'table', name: 'table',
           component: () => import(/* webpackChunkName: "about" */ './views/samples/TableExam.vue')
         }

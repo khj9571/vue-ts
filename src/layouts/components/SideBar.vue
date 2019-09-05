@@ -40,7 +40,8 @@
             <el-menu-item index="3-1" :route="{ name:'api'}">Api Exam</el-menu-item>
             <el-menu-item index="3-2" :route="{ name:'filter'}">Filter Exam</el-menu-item>
             <el-menu-item index="3-3" :route="{ name:'directive'}">Directive Exam</el-menu-item>
-            <el-menu-item index="3-4" :route="{ name:'table'}">테이블 Exam</el-menu-item>
+            <el-menu-item index="3-4" :route="{ name:'form'}">Form Exam</el-menu-item>
+            <el-menu-item index="3-5" :route="{ name:'table'}">테이블 Exam</el-menu-item>
             <el-menu-item>option-2-1-1</el-menu-item>
             <el-menu-item>option-2-1-2</el-menu-item>
           </el-submenu>
