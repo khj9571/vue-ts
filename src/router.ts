@@ -82,6 +82,10 @@ export default new Router({
         {
           path: 'table', name: 'table',
           component: () => import(/* webpackChunkName: "about" */ './views/samples/TableExam.vue')
+        },
+        {
+          path: 'mask', name: 'mask',
+          component: () => import(/* webpackChunkName: "about" */ './views/samples/MaskExam.vue')
         }
       ]
     }

@@ -2,10 +2,12 @@
   <div>
     <el-row style="padding:5px;">
       <el-col>
+
+        <!--545c64 E9EEF3 -->
         <el-menu
           :default-openeds="['1','2','3']"
           class="el-menu-vertical-demo"
-          background-color="#545c64"
+          background-color="#545c64" 
           text-color="#fff"
           active-text-color="#ffd04b"
           :router="true"
@@ -42,6 +44,7 @@
             <el-menu-item index="3-3" :route="{ name:'directive'}">Directive Exam</el-menu-item>
             <el-menu-item index="3-4" :route="{ name:'form'}">Form Exam</el-menu-item>
             <el-menu-item index="3-5" :route="{ name:'table'}">테이블 Exam</el-menu-item>
+            <el-menu-item index="3-6" :route="{ name:'mask'}">Mask Exam</el-menu-item>
             <el-menu-item>option-2-1-1</el-menu-item>
             <el-menu-item>option-2-1-2</el-menu-item>
           </el-submenu>

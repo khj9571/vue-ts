@@ -1,18 +1,14 @@
 <template>
-  <div style="height:100%">
-    <h1>Table Exam</h1>
-    <el-button @click="onClick()">클릭</el-button>
-    <el-date-picker type="date" placeholder="Pick a day"></el-date-picker>
-
-    <input
-      class="u-full-width"
-      id="us-phone-number-ex"
-      type="text"
-      placeholder="+1(999)-999-9999"
-      v-mask="'(###)-###-####'"
-      v-model="a"
-    />
+  <div>
+     <h1>테이블 EXAM</h1>
+    <el-table :data="tableData" border style="width: 100%">
+      <el-table-column prop="date" label="Date" width="180"></el-table-column>
+      <el-table-column prop="name" label="Name" width="180"></el-table-column>
+      <el-table-column prop="address" label="Address"></el-table-column>
+    </el-table>
   </div>
+
+  
 </template>
 
 <script lang="ts">
@@ -20,23 +16,40 @@ import { Component, Vue } from "vue-property-decorator";
 import { GroupMixin } from "@/mixins/GroupMixin";
 import { mixins } from "vue-class-component";
 
-// import colorDirective from '@/directives/color-directive';
-//  import {mask} from 'vue-the-mask';
 @Component({
-  components: {
-    // SideMenu
-  },
-  directives: {
-    // colorDirective
-  }
+  components: {},
+  directives: {}
 })
 export default class TableExam extends mixins(GroupMixin) {
-  private visible: boolean = true;
-  private a: string = "123";
+
+  private tableData: any[] = [
+    {
+      date: "2016-05-03",
+      name: "홍길동",
+      address: "서울시 동작구"
+    },
+    {
+      date: "2016-05-02",
+      name: "이순신",
+      address: "서울시 금천구"
+    },
+    {
+      date: "2016-05-04",
+      name: "강감찬",
+      address: "서울시 노원구"
+    },
+    {
+      date: "2016-05-01",
+      name: "신사임당",
+      address: "서울시 강동구"
+    }
+  ];
 
   onClick() {}
 
-  created() {}
+  created() {
+ 
+  }
   mounted() {
     //     let str:string = '[aabcdd]';
     // alert(str.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi,""))
