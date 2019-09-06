@@ -27,7 +27,7 @@ export default class TableExam extends mixins(GroupMixin) {
       date: "2016-05-03",
       name: "홍길동",
       address: "서울시 동작구"
-    },
+    },    
     {
       date: "2016-05-02",
       name: "이순신",
