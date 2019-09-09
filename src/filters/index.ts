@@ -1,4 +1,7 @@
 
+import Vue from 'vue'
+
+
 /**
  * 10000 => "10,000"
  * @param {number} num
@@ -19,4 +22,18 @@ export function uppercaseFirst(value: any) {
 
 export const removeSpecialChar = (value: any) => {
   return value.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi, "")
+}
+
+export const toDate = (value:any,format:string='YYYY-MM-DD') => {
+
+  if(typeof value === 'string' || (typeof value === 'object' && value instanceof Date)) {
+    return Vue.prototype.$moment(value).format(format);
+  }
+  return '';
+}
+
+
+export const abbreviation = (value:string,cutIdx:number) => {
+  if (!value) return ''
+  return value.slice(0, cutIdx) + '...';
 }

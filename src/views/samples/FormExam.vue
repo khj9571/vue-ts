@@ -91,15 +91,15 @@ export default class FormExam extends Vue {
     name: [
       {
         required: true,
-        message: "Please input Activity name",
+        message: "이름을 입력해 주세요.",
         trigger: "blur"
       },
-      { min: 3, max: 5, message: "Length should be 3 to 5", trigger: "blur" }
+      { min: 3, max: 5, message: "최소 3글자 최대 5글자", trigger: "blur" }
     ],
     region: [
       {
         required: true,
-        message: "Please select Activity zone",
+        message: "지역을 선택해 주세요",
         trigger: "change"
       }
     ],
@@ -107,7 +107,7 @@ export default class FormExam extends Vue {
       {
         type: "date",
         required: true,
-        message: "Please pick a date",
+        message: "날짜를 선택해 주세요.",
         trigger: "change"
       }
     ],
@@ -115,7 +115,7 @@ export default class FormExam extends Vue {
       {
         type: "date",
         required: true,
-        message: "Please pick a time",
+        message: "시간을 선택해 주세요.",
         trigger: "change"
       }
     ],
@@ -123,19 +123,19 @@ export default class FormExam extends Vue {
       {
         type: "array",
         required: true,
-        message: "Please select at least one activity type",
+        message: "취미를 선택해 주세요",
         trigger: "change"
       }
     ],
     resource: [
       {
         required: true,
-        message: "Please select activity resource",
+        message: "성별을 선택해 주세요",
         trigger: "change"
       }
     ],
     desc: [
-      { required: true, message: "Please input activity form", trigger: "blur" }
+      { required: true, message: "비고란을 입력해 주세요", trigger: "blur" }
     ]
   };
 

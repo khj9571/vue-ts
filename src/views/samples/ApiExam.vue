@@ -3,8 +3,8 @@
   <div style="height:100%">
     <h1>Api Test</h1>
 
-    <el-row style="border:solid 1px; height:100%" :align="'bottom'">
-      <el-col :span="8" style="border:solid 1px;">
+    <el-row style="height:100%" :gutter="20">
+      <el-col :span="8" style="height:100%">
         <el-row>
           <el-button @click="onGetHttpService()">Get</el-button>
         </el-row>
@@ -54,8 +54,7 @@ export default class ApiExam extends Vue {
   private onGetHttpService() {
     this.$restApiService.httpGetService("http://localhost:9090/getTest").then(
       res => {
-        console.log("성공");
-        console.log(res);
+  
       },
       err => {}
     );
@@ -64,8 +63,7 @@ export default class ApiExam extends Vue {
   private onPostHttpService() {
     this.$restApiService.httpPostService("http://localhost:9090/postTest").then(
       res => {
-        console.log("성공");
-        console.log(res);
+
       },
       err => {}
     );

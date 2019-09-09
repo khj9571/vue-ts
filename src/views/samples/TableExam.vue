@@ -6,8 +6,9 @@
       <el-table-column prop="name" label="Name" width="180"></el-table-column>
       <el-table-column prop="address" label="Address"></el-table-column>
     </el-table>
-  </div>
 
+  </div>
+   
   
 </template>
 

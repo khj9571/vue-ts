@@ -86,6 +86,10 @@ export default new Router({
         {
           path: 'mask', name: 'mask',
           component: () => import(/* webpackChunkName: "about" */ './views/samples/MaskExam.vue')
+        },
+        {
+          path: 'store', name: 'store',
+          component: () => import(/* webpackChunkName: "about" */ './views/samples/StoreExam.vue')
         }
       ]
     }
