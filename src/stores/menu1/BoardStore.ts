@@ -2,9 +2,9 @@ import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
 import Vue from 'vue'
 
 @Module({ namespaced: true })
-export default class Module2 extends VuexModule {
-  count = 0
-
+export default class BoardStore extends VuexModule {
+  
+  private count = 100;
 
 
   get label () {
@@ -13,46 +13,24 @@ export default class Module2 extends VuexModule {
 
 
   @Mutation
-   increment(delta: number) {
-
-    console.log('결과');
-    console.log(delta);
-    this.count += delta
+   setUserData(delta: number) {
   }
   @Mutation
   decrement(delta: number) {
-    this.count -= delta
+
   }
 
   // action 'incr' commits mutation 'increment' when done with return value as payload
   @Action({})
-  async  incr() {
+  async  getUserData() {
     const response =  await Vue.prototype.$restApiService.httpGetService("http://localhost:9090/getTest").then((res : any) => {
-      console.log('성공')   
       this.context.commit('increment',1);
     })
-  
- 
-
-    // .then(
-    //   (res: any) => {
-    //     console.log("성공");
-    //     console.log(res);
-    //     return 100;
-    //   },
-    //   (err: any) => {
-        
-   
-    //   }
-    // );
-
-
-    //return 5
   }
-  // action 'decr' commits mutation 'decrement' when done with return value as payload
+
   @Action({ commit: 'decrement' })
   decr() {
-    alert('b')
+    alert('호출')
     return 5
   }
 }
