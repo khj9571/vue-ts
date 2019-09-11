@@ -90,6 +90,10 @@ export default new Router({
         {
           path: 'store', name: 'store',
           component: () => import(/* webpackChunkName: "about" */ './views/samples/StoreExam.vue')
+        },
+        {
+          path: 'utils', name: 'utils',
+          component: () => import(/* webpackChunkName: "about" */ './views/samples/UtilsExam.vue')
         }
       ]
     }

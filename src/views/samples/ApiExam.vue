@@ -52,7 +52,7 @@ import { Component, Vue } from "vue-property-decorator";
 })
 export default class ApiExam extends Vue {
   private onGetHttpService() {
-    this.$restApiService.httpGetService("http://localhost:9090/getTest").then(
+    this.$restApiService.httpGetService("http://localhost:9090/getTest",{name:'홍길동', age:20}).then(
       res => {
   
       },

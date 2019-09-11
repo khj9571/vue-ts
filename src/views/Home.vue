@@ -34,11 +34,7 @@ export default class Home extends Vue {
   created() {}
 
   mounted() {
-    this.$restApiService
-      .httpGetService("http://localhost:9090/sample", {}, {}, true)
-      .then(res => {});
 
-    console.log(process.env);
     // this.$store.dispatch("test");
 
     // this.fetchData();
