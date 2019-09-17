@@ -24,11 +24,13 @@ import { State, Action, Getter } from "vuex-class";
 })
 export default class StoreExam extends Vue {
 
-  @Action("incr", { namespace: "b" }) incr: any;
+  @Action("test", { namespace: "c" }) test: any;
   @Getter("label", { namespace: "b" }) label: any;
-
+  @Action("decr", { namespace: "c/a" }) decr: any;
   onClick() {
-      this.incr();
+      this.decr();
+
+     console.log(this.$store)
   }
 
 }

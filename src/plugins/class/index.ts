@@ -96,21 +96,23 @@ enum NotificationType {
 let serviceReqLog  = (apiUrl:string,param:any) => {    
     console.log('%c%s',
             'color: red; background: white; font-size: 16px;', '--------------------------requst------------------------------');
-    console.log(apiUrl)        
-    console.log(param);
+    console.log('API =======>' + apiUrl);        
+    console.table(param);
 }
 
 let serviceResLog  = (apiUrl:string, result:any) => {
+
+    console.log(apiUrl);
+    console.log(result);
     console.log('%c%s',
     'color: red; background: white; font-size: 16px;', '--------------------------respone------------------------------');
-    console.log(apiUrl)  
-    console.log(result)
-
 }
 
 
 export class HttpService implements AbstractApi {
     private loading: LoadingBar = new LoadingBar();
+
+    private BASE_URL = process.env.VUE_APP_TEST; 
 
     httpGetService(url: string, params: any = {}, headers: any = {}, useLoading: boolean = true): Promise<any> {
         serviceReqLog(url,params);
@@ -156,6 +158,8 @@ export class HttpService implements AbstractApi {
 
         if (useLoading) this.loading.show();
 
+        let resultType: NotificationType = NotificationType.SUCCES;
+
         return Vue.axios.post(url, params, headers).then((response) => {
             return new Promise(function (resolve, reject) {
                 serviceResLog(url,response);
@@ -167,6 +171,7 @@ export class HttpService implements AbstractApi {
                 }
             })
         }, (err) => {
+            resultType = NotificationType.WARNING;
             return Promise.reject('Err')
         }).finally(() => {
 
@@ -175,6 +180,10 @@ export class HttpService implements AbstractApi {
                     this.loading.hide();
                 }, 500);
             }
+
+            setTimeout(() => {
+                Notification.getNotificationMsg(resultType);
+            }, 100);
         });
     }
 
@@ -193,7 +202,7 @@ export class HttpService implements AbstractApi {
             });
 
         }, (err) => {
-
+                console.log('err');
         }).finally(() => {
             this.loading.hide();
         })
