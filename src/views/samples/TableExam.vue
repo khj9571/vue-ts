@@ -54,6 +54,34 @@ export default class TableExam extends mixins(GroupMixin) {
   mounted() {
     //     let str:string = '[aabcdd]';
     // alert(str.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi,""))
+
+     var arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
+
+     const rowCount = 6;
+     var row = Math.ceil(arr.length/rowCount);
+     var fn=(ogr:any,count:any) => {
+       var pg = Math.ceil(ogr.length/count);
+       var max = pg * count;
+       var na = max - ogr.length;
+       //console.log(count - na);
+   
+     }
+
+
+     var na =fn(arr,6);
+
+
+     var fn2 = (org:any,row:any,na:any,strart= 1):any => {
+  
+       if(strart > row) return ;
+            console.log(strart)
+
+       return fn2(org,row,na,++strart);
+     }
+
+     fn2(arr,row,na)
+
+
   }
 }
 </script>
