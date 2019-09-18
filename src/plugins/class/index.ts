@@ -1,6 +1,6 @@
 
 import Vue from 'vue'
-
+import axios from 'axios'
 
 interface AbstractApi {
     httpGetService(url: string, params: any, headers: any, useLoading: boolean): Promise<any>;
@@ -108,11 +108,18 @@ let serviceResLog  = (apiUrl:string, result:any) => {
     'color: red; background: white; font-size: 16px;', '--------------------------respone------------------------------');
 }
 
+let data = {
+    accessToken:'123456'
+}
+
+axios.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
+
 
 export class HttpService implements AbstractApi {
     private loading: LoadingBar = new LoadingBar();
 
     private BASE_URL = process.env.VUE_APP_TEST; 
+
 
     httpGetService(url: string, params: any = {}, headers: any = {}, useLoading: boolean = true): Promise<any> {
         serviceReqLog(url,params);

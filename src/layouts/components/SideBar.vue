@@ -47,6 +47,8 @@
             <el-menu-item index="3-6" :route="{ name:'mask'}">Mask Exam</el-menu-item>
             <el-menu-item index="3-7" :route="{ name:'store'}">Store Exam</el-menu-item>
             <el-menu-item index="3-8" :route="{ name:'utils'}">Utils Exam</el-menu-item>
+            <el-menu-item index="3-9" :route="{ name:'mixin'}">MixIn Exam</el-menu-item>
+            <el-menu-item index="3-10" :route="{ name:'board'}">Board Exam</el-menu-item>
             <el-menu-item>option-2-1-1</el-menu-item>
             <el-menu-item>option-2-1-2</el-menu-item>
           </el-submenu>

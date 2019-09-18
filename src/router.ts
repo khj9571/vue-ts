@@ -94,6 +94,10 @@ export default new Router({
         {
           path: 'utils', name: 'utils',
           component: () => import(/* webpackChunkName: "about" */ './views/samples/UtilsExam.vue')
+        },
+        {
+          path: 'board', name: 'board',
+          component: () => import(/* webpackChunkName: "about" */ './views/samples/BoardExam.vue')
         }
       ]
     }

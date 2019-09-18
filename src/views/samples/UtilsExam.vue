@@ -87,10 +87,10 @@ export default class LodashExam extends Vue {
 
   onMapClick = () => {
     let temp = [10, 20];
-
     let res = map(temp, d => d * d);
-
+    
     console.log(res);
+
   };
 }
 </script>

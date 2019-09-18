@@ -87,6 +87,8 @@ export default class ApiExam extends Vue {
   }
 
   created() {}
-  mounted() {}
+  mounted() {
+
+  }
 }
 </script>

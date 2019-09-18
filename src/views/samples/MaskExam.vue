@@ -14,6 +14,9 @@
       <el-form-item label="신용카드 번호 형식:">
         <el-input v-model="bindData.card" v-mask="'####-####-####-####'" placeholder="카드"></el-input>
       </el-form-item>
+      <el-form-item label="주민번호:">
+        <el-input v-model="bindData.jumin" v-mask="'####'" placeholder="번호"></el-input>
+      </el-form-item>
     </el-form>
   </div>
 </template>
@@ -29,7 +32,8 @@ export default class MaskExam extends Vue {
     date: "",
     phone: "",
     zip: "",
-    card:""
+    card:"",
+    jumin: ""
   };
 }
 </script>
