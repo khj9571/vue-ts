@@ -46,8 +46,13 @@ export default class TableExam extends mixins(GroupMixin) {
 
   created() {}
   mounted() {
-    //     let str:string = '[aabcdd]';
-    // alert(str.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi,""))
+
+
+       console.log(Vue.fnObjEmpCheck({}))
+
+
+
+     return;
 
     var arr = [
       1,

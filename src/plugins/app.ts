@@ -85,7 +85,9 @@ declare module 'vue/types/vue' {
   }
 
   interface VueConstructor {
-
+    fnObjEmpCheck: (obj: any) => {
+ 
+    }
   }
 }
 
@@ -101,6 +103,10 @@ const GloblePlugin: any = {};
 GloblePlugin.install = function (Vue: any, options: any) {
 
   // console.log(Vue.prototype.$moment().format('YYYYMMDD'))
+  Vue.fnObjEmpCheck = (obj:any) => {
+    return Object.keys(obj).length === 0 && JSON.stringify(obj) === JSON.stringify({});
+  }
+  
 
   let fi: any = filters;
   Object.keys(filters).forEach(key => {
