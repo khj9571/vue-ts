@@ -47,13 +47,6 @@ export default class TableExam extends mixins(GroupMixin) {
   created() {}
   mounted() {
 
-
-       console.log(Vue.fnObjEmpCheck({}))
-
-
-
-     return;
-
     var arr = [
       1,
       2,

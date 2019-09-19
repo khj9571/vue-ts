@@ -85,9 +85,15 @@ declare module 'vue/types/vue' {
   }
 
   interface VueConstructor {
-    fnObjEmpCheck: (obj: any) => {
- 
-    }
+    /**
+     * Object {} 비었있는지 체크
+     */
+    fnObjEmpCheck: (obj: any) => {}
+
+    /**
+     * null || undefined 체크
+     */
+    fnNullCheck : (obj: any)=>{}
   }
 }
 
@@ -103,8 +109,17 @@ const GloblePlugin: any = {};
 GloblePlugin.install = function (Vue: any, options: any) {
 
   // console.log(Vue.prototype.$moment().format('YYYYMMDD'))
-  Vue.fnObjEmpCheck = (obj:any) => {
+  Vue.fnObjEmpCheck = (obj:any):boolean => {
+    //  console.log(typeof obj)
+    if(typeof obj != 'object' || obj == null) {
+      throw new Error('x는 Object {} 타입이거나 null 이 아니여야 합니다')
+    }
+
     return Object.keys(obj).length === 0 && JSON.stringify(obj) === JSON.stringify({});
+  }
+
+  Vue.fnNullCheck =(obj:any):boolean => {
+    return obj == null || obj == undefined;
   }
   
 

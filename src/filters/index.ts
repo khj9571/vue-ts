@@ -24,16 +24,30 @@ export const removeSpecialChar = (value: any) => {
   return value.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi, "")
 }
 
-export const toDate = (value:any,format:string='YYYY-MM-DD') => {
+/**
+ * 날짜 변환
+ * @param value 날짜 
+ * @param format 변환 형식
+ */
+export const toDate = (value: any, format: string = 'YYYY-MM-DD') => {
 
-  if(typeof value === 'string' || (typeof value === 'object' && value instanceof Date)) {
+  if (typeof value === 'string' || (typeof value === 'object' && value instanceof Date)) {
     return Vue.prototype.$moment(value).format(format);
   }
   return '';
 }
 
-
-export const abbreviation = (value:string,cutIdx:number) => {
+/**
+ * 말줄임
+ * @param value 값 
+ * @param cutIdx 줄일 사이즈
+ */
+export const abbreviation = (value: string, cutIdx: number) => {
   if (!value) return ''
   return value.slice(0, cutIdx) + '...';
+}
+
+export const oneHunderdthound = (value: any) => {
+
+  return false;
 }
