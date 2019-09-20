@@ -6,7 +6,7 @@ import Border from './BoardStore'
  export const module: Module<any, any> = {
    namespaced:true,
    modules:{
-       a:Border
+       board:Border
    },
    actions: {
        

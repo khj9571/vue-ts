@@ -47,7 +47,20 @@ export const abbreviation = (value: string, cutIdx: number) => {
   return value.slice(0, cutIdx) + '...';
 }
 
-export const oneHunderdthound = (value: any) => {
+/**
+ * 금액 억 단위 환산
+ * @param value 억단위로 환산할 금액
+ * @param round 반올림
+ */
+export const oneHunderdthound = (value: any,round:number = 2) => {
 
-  return false;
+  if (value == undefined || value == '') return '';
+  const baseCurrency = 100000000;
+  const minCurrency = 5000000;
+  // var fix = (value:any) => {
+  //   if (Math.abs(parseInt(value)) >= baseCurrency) {
+  //     return 1;
+  //   }
+  // }
+  return (parseInt(value) / baseCurrency).toFixed(round);
 }
