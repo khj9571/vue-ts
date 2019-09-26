@@ -19,9 +19,14 @@
               <span slot="title">메뉴1</span>
             </template>
 
-            <el-menu-item>메뉴1-1</el-menu-item>
-            <el-menu-item>메뉴1-2</el-menu-item>
-            <el-menu-item>메뉴1-3</el-menu-item>
+            <el-submenu index="1">
+                          <template slot="title">
+              <i class="el-icon-location"></i>
+              <span slot="title">메뉴1 -1</span>
+            </template>
+            
+            </el-submenu>
+
           </el-submenu>
           <el-submenu index="2">
             <template slot="title">
@@ -49,6 +54,8 @@
             <el-menu-item index="3-8" :route="{ name:'utils'}">Utils Exam</el-menu-item>
             <el-menu-item index="3-9" :route="{ name:'mixin'}">MixIn Exam</el-menu-item>
             <el-menu-item index="3-10" :route="{ name:'board'}">Board Exam</el-menu-item>
+            <el-menu-item index="3-11" :route="{ name:'menu'}">Menu Exam</el-menu-item>
+            <el-menu-item index="3-12" :route="{ name:'component'}">Component Exam</el-menu-item>
             <el-menu-item>option-2-1-1</el-menu-item>
             <el-menu-item>option-2-1-2</el-menu-item>
           </el-submenu>

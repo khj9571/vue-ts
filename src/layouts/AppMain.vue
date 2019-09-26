@@ -1,6 +1,6 @@
 
 <template>
-  <el-container style="border:solid 1px; height: -webkit-fill-available;">
+  <el-container >
 
    <el-aside width="300px">
       <side-bar></side-bar>
@@ -39,14 +39,6 @@
   </el-container>
 </template>
 
-// <el-container>
-//   <el-aside width="200px">Aside</el-aside>
-//   <el-container>
-//     <el-header>Header</el-header>
-//     <el-main>Main</el-main>
-//     <el-footer>Footer</el-footer>
-//   </el-container>
-// </el-container>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
@@ -75,6 +67,9 @@ export default class SideMenu extends Vue {
   }
 }
 </script>
+
+
+
 <style>
 .el-submenu__title {
   text-align: left;
@@ -98,6 +93,6 @@ export default class SideMenu extends Vue {
   background-color: #e9eef3;
   color: #333;
   text-align: center;
-  /* line-height: 160px; */
+
 }
 </style>

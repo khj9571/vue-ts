@@ -98,6 +98,14 @@ export default new Router({
         {
           path: 'board', name: 'board',
           component: () => import(/* webpackChunkName: "about" */ './views/samples/BoardExam.vue')
+        },
+        {
+          path: 'menu', name: 'menu',
+          component: () => import(/* webpackChunkName: "about" */ './views/samples/MenuExam.vue')
+        },
+        {
+          path: 'component', name: 'component',
+          component: () => import(/* webpackChunkName: "about" */ './views/samples/ComponentExam.vue')
         }
       ]
     }
