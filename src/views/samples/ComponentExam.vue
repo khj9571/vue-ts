@@ -4,8 +4,17 @@
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
     </el-select>
 
-    <date-picker :type ="value" :fromDt.sync="fromDt"></date-picker>
+    <date-picker :type ="value" :fromDt.sync="fromDt" :toDt.sync ="toDt">
+     <template v-slot:end>
+        <el-button>A</el-button>
+        <el-button>A</el-button>
+        <el-button>A</el-button>
+        <el-button>A</el-button>
+    </template>
+    </date-picker>
      <el-button @click="confirm()">확인</el-button>
+      <el-button>A</el-button>
+        <el-button>A</el-button>
   </div>
 </template>
 
@@ -22,7 +31,9 @@ export default class ComponentExam extends Vue {
 
   private value ='date';
 
-  private fromDt:any  = this.$moment('20200220').toDate()
+  private fromDt:any  = this.$moment('20200220').toDate();
+
+  private toDt:any  = this.$moment('20210220').toDate()
 
   private options = [
     {
