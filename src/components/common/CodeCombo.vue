@@ -1,10 +1,19 @@
 <template>
-  <div style="border:solid 1px">
+  <div class="codeComboBox">
     <el-select v-model="codeValue" @change="onChange($event)">
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
     </el-select>
   </div>
 </template>
+
+<style scoped>
+.codeComboBox {
+  padding: 2px;
+  border: solid 1px #dbdbdb;
+  display: inline-block;
+}
+</style>
+
 
 <script lang="ts">
 import {
@@ -17,27 +26,47 @@ import {
 } from "vue-property-decorator";
 import { cloneDeep, map } from "lodash";
 
+
+enum CodeComboEvent {
+ DATA_LOAD='dataLoad',
+ DATA_SELECTED = 'dataSelected'
+}
+
+
+
 @Component({
   name: "code-combo"
 })
 export default class CodeCombo extends Vue {
-  //   model: {
-  //     prop: 'checked',
-  //     event: 'change'
-  //   },
-  //   props: {
-  //     // 다른 목적을 위해 `value` prop를 사용할 수 있습니다.
-  //     checked: Boolean,
-  //     value: String
-  //   }
+  @Model("change", { type: String, default: "" })
+  value!: String;
 
-  @Model("change", { type: String, default: "" }) value!: String;
+  @Prop({ default: "" })
+  readonly groupCode!: string;
 
-  private codeGroup: string = "";
+  @Prop({ default: false })
+  readonly useAll!: boolean;
 
-  private codeValue = "";
+  @Watch("groupCode")
+  onGroupCodeChanged(val: Date, oldVal: Date) {
+   console.log('그룹코드 체인지');
+   console.log(val);
+  }
 
-  private options = [
+  @Watch("value")
+  onValueChanged(val: string, oldVal: string) {
+    console.log('벨류 체인지');
+    this.codeValue = val;
+  }
+
+
+  private codeValue = this.value;
+
+  private options: Array<any> = [];
+
+  private selectedItem:any = {};
+
+  private temp = [
     {
       value: "1",
       label: "Option1"
@@ -60,25 +89,41 @@ export default class CodeCombo extends Vue {
     }
   ];
 
-  onChange(evt:any) {
-     console.log(evt)
-         
-        console.log(this.codeValue)
+  onChange(evt: any) {
+    this.$emit("change", evt);
 
-         this.value = this.codeValue;
+   var idx = this.options.findIndex(d => {
+      return d.value == evt;
+    });
+
+    this.selectedItem = this.options[idx];
+    this.$emit(CodeComboEvent.DATA_SELECTED,this.options[idx]);
+
   }
 
   constructor() {
     super();
 
     console.log("CodeCombo 생성자");
+    console.log(this.groupCode);
+
+    if (this.useAll) {
+      this.options.push({
+        value: "",
+        label: "전체"
+      });
+    }
+
+    this.options = this.options.concat(this.temp);
 
   }
 
-  create() {
-    //this.$restApiService.httpGetService()
+  created() {
+
   }
 
-  mounted() {}
+  mounted() {
+
+  }
 }
 </script>

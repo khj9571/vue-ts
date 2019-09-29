@@ -58,7 +58,7 @@ enum DateType {
 // DATEMONTHCHANGE: "dateChange:month",
 // DATERANGECHANGE: "dateChange:range"
 
-enum DateEvent {
+enum DatePickerEvent {
   DATE_CHAGE = "dateChange:date",
   MONTH_CHAGE = "dateChange:month",
   DATE_RANGE_CHANGE = "dateChange:dateRange",
@@ -247,13 +247,13 @@ export default class DatePicker extends Vue {
 
   get getDateEventType() {
     if (this.type == DateType.DATE) {
-      return DateEvent.DATE_CHAGE;
+      return DatePickerEvent.DATE_CHAGE;
     } else if (this.type == DateType.MONTH) {
-      return DateEvent.MONTH_CHAGE;
+      return DatePickerEvent.MONTH_CHAGE;
     } else if (this.type == DateType.DATE_RANGE) {
-      return DateEvent.DATE_RANGE_CHANGE;
+      return DatePickerEvent.DATE_RANGE_CHANGE;
     } else if (this.type == DateType.MONTH_RANGE) {
-      return DateEvent.MONTH_RANGE_CHANGE;
+      return DatePickerEvent.MONTH_RANGE_CHANGE;
     }
     return "";
   }

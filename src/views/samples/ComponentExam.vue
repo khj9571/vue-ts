@@ -20,9 +20,22 @@
     </date-picker>
      <el-button @click="confirm()">확인</el-button>
 
-      <code-combo v-model="comboValue" @change="onComboChage($event)"/>
+      <code-combo v-model="comboValue" :groupCode="'111'" :useAll="true" @change="onComboChage($event)" @dataSelected="onDateSelected($event)"/>
       {{this.comboValue}}
-      <!-- <el-input v-model="comboValue"></el-input> -->
+      <el-input v-model="groupCode" ></el-input>
+      
+
+      <div>
+        <group-code-combo>
+           <template slot="content" slot-scope="scope">
+              <code-combo v-model="val1" :groupCode="'111'" :useAll="true" @dataSelected="scope.change($event,'1')"/>
+              <code-combo v-model="val2" :useAll="true" @dataSelected="scope.change('2')"/>
+              <code-combo v-model="val3" :groupCode="'111'" :useAll="true" @dataSelected="scope.change('3')"/>
+              <code-combo v-model="val4" :groupCode="'111'" :useAll="true" @dataSelected="scope.change('4')"/>
+           </template>
+        </group-code-combo>
+
+      </div>
   </div>
 </template>
 
@@ -30,22 +43,23 @@
 import { Component, Vue } from "vue-property-decorator";
 import DatePicker from "@/components/common/DatePicker.vue";
 import CodeCombo from "@/components/common/CodeCombo.vue";
+import GroupCodeCombo from "@/components/common/GroupCodeCombo.vue";
 
 import { map } from "lodash";
 // code-combo
 @Component({
   components: {
     DatePicker,
-    CodeCombo
+    CodeCombo,
+    GroupCodeCombo
   }
 })
 export default class ComponentExam extends Vue {
+  private value = "daterange";
 
-  private value ='daterange';
+  private fromDt: any = this.$moment("20200220").toDate();
 
-  private fromDt:any  = this.$moment('20200220').toDate();
-
-  private toDt:any  = this.$moment('20210220').toDate()
+  private toDt: any = this.$moment("20210220").toDate();
 
   private options = [
     {
@@ -66,14 +80,20 @@ export default class ComponentExam extends Vue {
     }
   ];
 
-  private comboValue='abc';
+  private comboValue = "4";
 
+  private groupCode = "";
+
+
+  private val1 = '';
+  private val2 ='';
+  private val3='';
+  private val4 ='';
   confirm() {
-    console.log('확인');
-  console.log(this.fromDt)
-
+    console.log("확인");
+    console.log(this.fromDt);
   }
-  
+
   // beforeRouteEnter (to, from, next) {
   //   console.log('beforeRouteEnter')
   //   next() // needs to be called to confirm the navigation
@@ -85,29 +105,27 @@ export default class ComponentExam extends Vue {
   // }
 
   mounted() {
-  //  console.log('머징')
-  //  console.log(this.$moment().format('YYYYMMDD'))
-  //  console.log(this.$moment('20140324').format('YYYYMMDD'))
-  //  console.log(this.$moment(new Date()).format('YYYYMMDD'))
-  // this.fromDt =  this.$moment('20140324').toDate();
+    //  console.log('머징')
+    //  console.log(this.$moment().format('YYYYMMDD'))
+    //  console.log(this.$moment('20140324').format('YYYYMMDD'))
+    //  console.log(this.$moment(new Date()).format('YYYYMMDD'))
+    // this.fromDt =  this.$moment('20140324').toDate();
 
-  var arr= [1,2,3];
-
-  map(arr,(d)=> {return d*d});
-
- this.comboValue ='123';
-
-
-  console.log(arr);
+    this.comboValue = "4";
+    this.groupCode = "444";
   }
 
-  onDateChange(data:any) {
-    console.log(data)
-  }
-
-  onComboChage(data:any) {
-    console.log('onComboChage');
+  onDateChange(data: any) {
     console.log(data);
+  }
+
+  onComboChage(data: any) {
+    console.log("onComboChage");
+    console.log(data);
+  }
+
+  onDateSelected(evt: any) {
+    console.log(evt);
   }
 }
 </script>
