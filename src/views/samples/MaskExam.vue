@@ -15,8 +15,14 @@
         <el-input v-model="bindData.card" v-mask="'####-####-####-####'" placeholder="카드"></el-input>
       </el-form-item>
       <el-form-item label="주민번호:">
-        <el-input v-model="bindData.jumin" v-mask="'####'" placeholder="번호"></el-input>
+        <el-input v-model="bindData.jumin"  v-mask="{ mask: '(999) 999-9999', placeholder: '#' }" placeholder="번호"></el-input>
       </el-form-item>
+
+       <input type="text"
+         name="postalCode"
+         class="form-control"
+         v-mask="{ mask: ['99999-9999','9A9 A9A'], placeholder: '#' }"
+         v-model="bindData.jumin" />
     </el-form>
   </div>
 </template>

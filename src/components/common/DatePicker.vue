@@ -18,7 +18,7 @@
 
 .datePicker-box {
   padding: 2px;
-  border: solid 1px #dbdbdb;
+  /* border: solid 1px #dbdbdb; */
   display: inline-block
 }
 

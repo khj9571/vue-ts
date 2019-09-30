@@ -1,16 +1,21 @@
 <template>
-    <div class="groupCodeComboBox">
-         <slot name="content" :change="codeChanged" :value1="value1">
-
-         </slot>
-    </div>  
+  <div class="groupCodeComboBox">
+    <slot
+      name="content"
+      :change="codeChanged"
+      :groupCodeA="groupCodeA"
+      :groupCodeB="groupCodeB"
+      :groupCodeC="groupCodeC"
+      :groupCodeD="groupCodeD"
+    ></slot>
+  </div>
 </template>
 
 
 <style scoped>
 .groupCodeComboBox {
   padding: 2px;
-  border: solid 1px #dbdbdb;
+  /* border: solid 1px #dbdbdb; */
   display: inline-block;
 }
 </style>
@@ -26,7 +31,6 @@ import {
   Model
 } from "vue-property-decorator";
 import { cloneDeep, map } from "lodash";
-import { __param } from 'tslib';
 
 @Component({
   name: "group-code-combo"
@@ -36,17 +40,26 @@ export default class CodeCombo extends Vue {
   //    console.log(evt);
   //  }
 
-  value1:string =''
+  groupCodeA: string = "";
 
-  codeChanged(data:any,idx: any)  {
+  groupCodeB: string = "";
 
-    if(idx == 1) {
-      this.value1 = data.value
+  groupCodeC: string = "";
+
+  groupCodeD: string = "";
+
+  codeChanged(data: any, idx: any) {
+    if (idx == undefined || idx == null) return;
+
+    if (idx == 1) {
+      this.groupCodeA = data.value;
+    } else if (idx == 2) {
+      this.groupCodeB = data.value;
+    } else if (idx == 3) {
+      this.groupCodeC = data.value;
+    } else if (idx == 4) {
+      this.groupCodeD = data.value;
     }
-    
-    console.log(idx)
-      console.log(data)
-
-  };
+  }
 }
 </script>
