@@ -42,7 +42,7 @@ const directive: DirectiveOptions = {
 
     },
     update(el, binding, vnode) {
-        console.log("updated");
+       // console.log("updated");
     }
     
 };

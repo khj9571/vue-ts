@@ -26,6 +26,7 @@ Vue.use(VueAxios, axios)
  *********************************************************/
 
 import 'expose-loader?$!expose-loader?jQuery!jquery'
+import $ from 'jquery';
 
 /********************************************************
  * v-mask

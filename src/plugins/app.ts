@@ -82,6 +82,7 @@ declare module 'vue/types/vue' {
   interface Vue {
     $restApiService: HttpService;
     $moment(inp?: string | void | moment.Moment | Date) : moment.Moment;
+    $(ins:string):any
   }
 
   interface VueConstructor {
@@ -136,6 +137,7 @@ GloblePlugin.install = function (Vue: any, options: any) {
 
   Vue.prototype.$restApiService = new HttpService();
   Vue.prototype.$moment = moment;
+  Vue.prototype.$ = () => {};
 }
 
 

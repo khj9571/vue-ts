@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Directive Exam</h1>
+    <h1 id="h12">Directive Exam</h1>
 
     <!-- <div
       style="border: solid 1px;"
@@ -12,17 +12,26 @@
     </div>-->
 
     <div v-border="{border:true}">a</div>
+
+    <el-input v-focus v-model="value1" ></el-input>
+    
+    <el-input ></el-input>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Ref } from "vue-property-decorator";
 
+
 @Component({
   components: {}
 })
 export default class DirectiveExam extends Vue {
   @Ref("txt_input") readonly button: any; // HTMLButtonElement
+
+
+
+   value1="";
 
   created() {
     var arr = [];
@@ -68,6 +77,10 @@ export default class DirectiveExam extends Vue {
     };
 
    fn(arr,4,6)
+
+  }
+
+  mounted() {
 
   }
 }
