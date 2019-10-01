@@ -31,7 +31,14 @@ const directive: DirectiveOptions = {
         //     // el.style.color = node.value.color;
         //     // el.style.border = 'solid 1px black';
         // }
-
+        // switch (this.form.values.primary_phone.length) {
+        //   case 3:
+        //     return this.form.values.primary_phone = this.form.values.primary_phone.replace(/^([0-9]{3})$/, '($1)');
+        //   case 6:
+        //     return this.form.values.primary_phone = this.form.values.primary_phone.replace(/^([0-9]{3})([0-9]{3})$/, '($1)-$2');
+        //   case 10:
+        //     return this.form.values.primary_phone = this.form.values.primary_phone.replace(/^([0-9]{3})([0-9]{3})([0-9]{4})$/, '($1)-$2-$3');
+        // }
 
     },
     update(el, binding, vnode) {
