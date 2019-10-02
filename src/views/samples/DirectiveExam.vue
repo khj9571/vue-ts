@@ -13,7 +13,7 @@
 
     <div v-border="{border:true}">a</div>
 
-    <el-input v-focus v-model="value1" ></el-input>
+    <el-input v-focus v-model="value1" ></el-input> 
     
     <el-input ></el-input>
   </div>

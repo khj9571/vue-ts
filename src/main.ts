@@ -31,9 +31,11 @@ import $ from 'jquery';
 /********************************************************
  * v-mask
  *******************************************************/
-import VueMask from 'v-mask'
+// import VueMask from 'v-mask'
+// Vue.use(VueMask as any);
 
-Vue.use(VueMask as any);
+import VueTheMask from 'vue-the-mask'
+Vue.use(VueTheMask as any)
 
 /**
  * plugin
