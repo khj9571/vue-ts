@@ -35,7 +35,7 @@ import { cloneDeep, map } from "lodash";
 @Component({
   name: "group-code-combo"
 })
-export default class CodeCombo extends Vue {
+export default class GroupCodeCombo extends Vue {
   //  private codeChanged(evt:any) {
   //    console.log(evt);
   //  }
